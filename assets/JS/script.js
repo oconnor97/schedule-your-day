@@ -15,7 +15,39 @@ var timeInterval = setInterval(function() {
 
 
 var nineAm = beforeTime.add(0, 'hour').format('LT');
-$('#timeEl').text(nineAm);
+$('#nineAm').text(nineAm);
+
+var tenAm = beforeTime.add(1, 'hour').format('LT');
+$('#tenAm').text(tenAm);
+
+var elevenAm = beforeTime.add(1, 'hour').format('LT');
+$('#elevenAm').text(elevenAm);
+
+var noon = beforeTime.add(1, 'hour').format('LT');
+$('#noon').text(noon);
+
+var onePm = beforeTime.add(1, 'hour').format('LT');
+$('#onePm').text(onePm);
+
+var twoPm = beforeTime.add(1, 'hour').format('LT');
+$('#twoPm').text(twoPm);
+
+var threePm = beforeTime.add(1, 'hour').format('LT');
+$('#threePm').text(threePm);
+
+var fourPm = beforeTime.add(1, 'hour').format('LT');
+$('#fourPm').text(fourPm);
+
+var fivePm = beforeTime.add(1, 'hour').format('LT');
+$('#fivePm').text(fivePm);
+
+
+
+
+
+
+
+
 
 
 // function betweenTime(){
