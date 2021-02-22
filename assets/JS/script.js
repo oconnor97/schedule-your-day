@@ -116,3 +116,10 @@ function timeCompare() {
 };
 
 
+
+$("a").click(function() {
+    console.log('snailed it!!');
+}); 
+
+
+
