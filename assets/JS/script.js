@@ -1,6 +1,6 @@
 //declared variables
 var currentDay = $('#currentDay');
-var currentTime = moment().startOf('hour');
+var currentTime = moment().startOf('hour').format('LT');
 var beforeTime = moment().startOf('day').add(9, 'hours');
 var time9 = $('#time9');
 var time10 = $('#time10');
@@ -16,8 +16,8 @@ var time5 = $('#time5');
 var timeInterval = setInterval(function() {
     var time = moment().format('MMMM Do YYYY, h:mm:ss a');
     currentDay.text(time);
+    timeCompare();
 },1000);
-timeCompare();
 
 // setting text content of each time row
 var nineAm = beforeTime.add(0, 'hour').format('LT');
@@ -57,6 +57,8 @@ function timeCompare() {
     } else if (nineAm < currentTime) {
         time9.addClass('past');
     } else time9.addClass('future');
+
+
 
     // 10am
     if (tenAm === currentTime) {
@@ -116,10 +118,94 @@ function timeCompare() {
 };
 
 
+var textArea9 = $('#textArea9');
+var textArea10 = $('#textArea10');
+var textArea11 = $('#textArea11');
+var textArea12 = $('#textArea12');
+var textArea1 = $('#textArea1');
+var textArea2 = $('#textArea2');
+var textArea3 = $('#textArea3');
+var textArea4 = $('#textArea4');
+var textArea5 = $('#textArea5');
 
-$("a").click(function() {
-    console.log('snailed it!!');
+$("#click9").click(function() {
+    // event.preventDefault();
+    textArea9 = $('#textArea9').val();
+    console.log(textArea9);
+    localStorage.setItem('textArea9', textArea9);
 }); 
+
+$("#click10").click(function() {
+    // event.preventDefault();
+    textArea10 = $('#textArea10').val();
+    console.log(textArea10);
+    localStorage.setItem('textArea10', textArea10);
+}); 
+
+$("#click11").click(function() {
+    // event.preventDefault();
+    textArea11 = $('#textArea11').val();
+    console.log(textArea11);
+    localStorage.setItem('textArea11', textArea11);
+}); 
+
+$("#click12").click(function() {
+    // event.preventDefault();
+    textArea12 = $('#textArea12').val();
+    console.log(textArea12);
+    localStorage.setItem('textArea12', textArea12);
+}); 
+
+$("#click1").click(function() {
+    // event.preventDefault();
+    textArea1 = $('#textArea1').val();
+    console.log(textArea1);
+    localStorage.setItem('textArea1', textArea1);
+}); 
+
+$("#click2").click(function() {
+    // event.preventDefault();
+    textArea2 = $('#textArea2').val();
+    console.log(textArea2);
+    localStorage.setItem('textArea2', textArea2);
+}); 
+
+$("#click3").click(function() {
+    // event.preventDefault();
+    textArea3 = $('#textArea3').val();
+    console.log(textArea3);
+    localStorage.setItem('textArea3', textArea3);
+}); 
+
+$("#click4").click(function() {
+    // event.preventDefault();
+    textArea4 = $('#textArea4').val();
+    console.log(textArea4);
+    localStorage.setItem('textArea4', textArea4);
+}); 
+
+$("#click5").click(function() {
+    // event.preventDefault();
+    textArea5 = $('#textArea5').val();
+    console.log(textArea5);
+    localStorage.setItem('textArea5', textArea5);
+}); 
+
+
+   textArea9.val(localStorage.getItem('textArea9'));
+   textArea10.val(localStorage.getItem('textArea10'));
+   textArea11.val(localStorage.getItem('textArea11'));
+   textArea12.val(localStorage.getItem('textArea12'));
+   textArea1.val(localStorage.getItem('textArea1'));
+   textArea2.val(localStorage.getItem('textArea2'));
+   textArea3.val(localStorage.getItem('textArea3'));
+   textArea4.val(localStorage.getItem('textArea4'));
+   textArea5.val(localStorage.getItem('textArea5'));
+   
+
+
+
+
 
 
 
