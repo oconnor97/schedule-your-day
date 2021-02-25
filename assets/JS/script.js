@@ -1,7 +1,7 @@
 //declared variables
 var currentDay = $('#currentDay');
 var currentTime = moment().startOf('hour').format('LT');
-var beforeTime = moment().startOf('day').add(9, 'hours');
+var beforeTime = moment().startOf('date').add(9, 'hours');
 var time9 = $('#time9');
 var time10 = $('#time10');
 var time11 = $('#time11');
@@ -11,6 +11,7 @@ var time2 = $('#time2');
 var time3 = $('#time3');
 var time4 = $('#time4');
 var time5 = $('#time5');
+var time8 =$('#time8');
 
 // function to activate the time clock on page start
 var timeInterval = setInterval(function() {
@@ -19,7 +20,12 @@ var timeInterval = setInterval(function() {
     timeCompare();
 },1000);
 
+console.log(moment().startOf('day'));
+
+// timeCompare();
 // setting text content of each time row
+
+
 var nineAm = beforeTime.add(0, 'hour').format('LT');
 $('#nineAm').text(nineAm);
 
@@ -47,10 +53,13 @@ $('#fourPm').text(fourPm);
 var fivePm = beforeTime.add(1, 'hour').format('LT');
 $('#fivePm').text(fivePm);
 
+// console.log(nineAm);
+// console.log(currentTime);
 
-console.log(fivePm)
-console.log(currentTime)
+
 function timeCompare() {
+      
+  
     // 9am
     if (nineAm === currentTime) {
         time9.addClass('present');
@@ -58,6 +67,8 @@ function timeCompare() {
         time9.addClass('past');
     } else time9.addClass('future');
 
+
+    
 
 
     // 10am
@@ -127,6 +138,7 @@ var textArea2 = $('#textArea2');
 var textArea3 = $('#textArea3');
 var textArea4 = $('#textArea4');
 var textArea5 = $('#textArea5');
+
 
 $("#click9").click(function() {
     // event.preventDefault();
@@ -201,11 +213,3 @@ $("#click5").click(function() {
    textArea3.val(localStorage.getItem('textArea3'));
    textArea4.val(localStorage.getItem('textArea4'));
    textArea5.val(localStorage.getItem('textArea5'));
-   
-
-
-
-
-
-
-
