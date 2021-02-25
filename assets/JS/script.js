@@ -1,57 +1,49 @@
 //declared variables
 var currentDay = $('#currentDay');
-var currentTime = moment().startOf('hour').format('LT');
-var beforeTime = moment().startOf('date').add(9, 'hours');
-var time9 = $('#time9');
-var time10 = $('#time10');
-var time11 = $('#time11');
-var time12 = $('#time12');
-var time1 = $('#time1');
-var time2 = $('#time2');
-var time3 = $('#time3');
-var time4 = $('#time4');
-var time5 = $('#time5');
-var time8 =$('#time8');
+var currentTime = moment().startOf('hour');
+var endTime = moment().endOf('day');
 
 // function to activate the time clock on page start
 var timeInterval = setInterval(function() {
     var time = moment().format('MMMM Do YYYY, h:mm:ss a');
     currentDay.text(time);
     timeCompare();
+    if (time === endTime) {
+        localStorage.clear();
+    }
 },1000);
 
-console.log(moment().startOf('day'));
 
 // timeCompare();
 // setting text content of each time row
 
 
-var nineAm = beforeTime.add(0, 'hour').format('LT');
-$('#nineAm').text(nineAm);
+var nineAm = moment().startOf('day').add(9, 'hour');
+$('#nineAm').text(nineAm.format('LT'));
 
-var tenAm = beforeTime.add(1, 'hour').format('LT');
-$('#tenAm').text(tenAm);
+var tenAm = moment().startOf('day').add(10, 'hour');
+$('#tenAm').text(tenAm.format('LT'));
 
-var elevenAm = beforeTime.add(1, 'hour').format('LT');
-$('#elevenAm').text(elevenAm);
+var elevenAm = moment().startOf('day').add(11, 'hour');
+$('#elevenAm').text(elevenAm.format('LT'));
 
-var noon = beforeTime.add(1, 'hour').format('LT');
-$('#noon').text(noon);
+var noon = moment().startOf('day').add(12, 'hour');
+$('#noon').text(noon.format('LT'));
 
-var onePm = beforeTime.add(1, 'hour').format('LT');
-$('#onePm').text(onePm);
+var onePm = moment().startOf('day').add(13, 'hour');
+$('#onePm').text(onePm.format('LT'));
 
-var twoPm = beforeTime.add(1, 'hour').format('LT');
-$('#twoPm').text(twoPm);
+var twoPm = moment().startOf('day').add(14, 'hour');
+$('#twoPm').text(twoPm.format('LT'));
 
-var threePm = beforeTime.add(1, 'hour').format('LT');
-$('#threePm').text(threePm);
+var threePm = moment().startOf('day').add(15, 'hour');
+$('#threePm').text(threePm.format('LT'));
 
-var fourPm = beforeTime.add(1, 'hour').format('LT');
-$('#fourPm').text(fourPm);
+var fourPm = moment().startOf('day').add(16, 'hour');
+$('#fourPm').text(fourPm.format('LT'));
 
-var fivePm = beforeTime.add(1, 'hour').format('LT');
-$('#fivePm').text(fivePm);
+var fivePm = moment().startOf('day').add(17, 'hour');
+$('#fivePm').text(fivePm.format('LT'));
 
 // console.log(nineAm);
 // console.log(currentTime);
@@ -61,71 +53,86 @@ function timeCompare() {
       
   
     // 9am
-    if (nineAm === currentTime) {
-        time9.addClass('present');
-    } else if (nineAm < currentTime) {
-        time9.addClass('past');
-    } else time9.addClass('future');
-
-
-    
+    if (currentTime.isSame(nineAm, 'hour')) {
+        $('#time9').addClass('present');
+    } else if (nineAm.isBefore(currentTime, 'hour')) {
+        $('#time9').addClass('past');
+    } else {
+        $('#time9').addClass('future');
+    };
 
 
     // 10am
-    if (tenAm === currentTime) {
-        time10.addClass('present');
-    } else if (tenAm < currentTime) {
-        time10.addClass('past');
-    } else time10.addClass('future');
+    if (currentTime.isSame(tenAm, 'hour')) {
+        $('#time10').addClass('present');
+    } else if (tenAm.isBefore(currentTime, 'hour')) {
+        $('#time10').addClass('past');
+    } else {
+        $('#time10').addClass('future');
+    };
 
     // 11am
-    if (elevenAm === currentTime) {
-        time11.addClass('present');
-    } else if (elevenAm < currentTime) {
-        time11.addClass('past');
-    } else time11.addClass('future');
+    if (currentTime.isSame(elevenAm, 'hour')) {
+        $('#time11').addClass('present');
+    } else if (elevenAm.isBefore(currentTime, 'hour')) {
+        $('#time11').addClass('past');
+    } else {
+        $('#time11').addClass('future');
+    };
 
     // 12pm
-    if (noon === currentTime) {
-        time12.addClass('present');
-    } else if (noon < currentTime) {
-        time12.addClass('past');
-    } else time12.addClass('future');
+    if (currentTime.isSame(noon, 'hour')) {
+        $('#time12').addClass('present');
+    } else if (noon.isBefore(currentTime, 'hour')) {
+        $('#time12').addClass('past');
+    } else {
+        $('#time12').addClass('future');
+    };
 
     // 1pm
-    if (onePm === currentTime) {
-        time1.addClass('present');
-    } else if (onePm < currentTime) {
-        time1.addClass('past');
-    } else time1.addClass('future');
+    if (currentTime.isSame(onePm, 'hour')) {
+        $('#time1').addClass('present');
+    } else if (onePm.isBefore(currentTime, 'hour')) {
+        $('#time1').addClass('past');
+    } else {
+        $('#time1').addClass('future');
+    };
 
     // 2pm
-    if (twoPm === currentTime) {
-        time2.addClass('present');
-    } else if (twoPm < currentTime) {
-        time2.addClass('past');
-    } else time2.addClass('future');
+    if (currentTime.isSame(twoPm, 'hour')) {
+        $('#time2').addClass('present');
+    } else if (twoPm.isBefore(currentTime, 'hour')) {
+        $('#time2').addClass('past');
+    } else {
+        $('#time2').addClass('future');
+    };
 
     // 3pm
-    if (threePm === currentTime) {
-        time3.addClass('present');
-    } else if (threePm < currentTime) {
-        time3.addClass('past');
-    } else time3.addClass('future');
+    if (currentTime.isSame(threePm, 'hour')) {
+        $('#time3').addClass('present');
+    } else if (threePm.isBefore(currentTime, 'hour')) {
+        $('#time3').addClass('past');
+    } else {
+        $('#time3').addClass('future');
+    };
 
     // 4pm
-    if (fourPm === currentTime) {
-        time4.addClass('present');
-    } else if (fourPm < currentTime) {
-        time4.addClass('past');
-    } else time4.addClass('future');
+    if (currentTime.isSame(fourPm, 'hour')) {
+        $('#time4').addClass('present');
+    } else if (fourPm.isBefore(currentTime, 'hour')) {
+        $('#time4').addClass('past');
+    } else {
+        $('#time4').addClass('future');
+    };
 
     // 5pm
-    if (fivePm === currentTime) {
-        time5.addClass('present');
-    } else if (fivePm < currentTime) {
-        time5.addClass('past');
-    } else time5.addClass('future');
+    if (currentTime.isSame(fivePm, 'hour')) {
+        $('#time5').addClass('present');
+    } else if (fivePm.isBefore(currentTime, 'hour')) {
+        $('#time5').addClass('past');
+    } else {
+        $('#time5').addClass('future');
+    };
 };
 
 
