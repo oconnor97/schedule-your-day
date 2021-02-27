@@ -22,7 +22,7 @@ var timeInterval = setInterval(function() {
     }
 },1000);
 
-// timeCompare();
+
 // setting text content of each time row
 
 
@@ -53,8 +53,8 @@ $('#fourPm').text(fourPm.format('LT'));
 var fivePm = moment().startOf('day').add(17, 'hour');
 $('#fivePm').text(fivePm.format('LT'));
 
-// console.log(nineAm);
-// console.log(currentTime);
+
+// compaing the times to the current time of day and setting the colors to represent past, present, future
 
 
 function timeCompare() {
@@ -143,7 +143,7 @@ function timeCompare() {
     };
 };
 
-
+// variables for the text input of the input field.
 var textArea9 = $('#textArea9');
 var textArea10 = $('#textArea10');
 var textArea11 = $('#textArea11');
@@ -154,6 +154,8 @@ var textArea3 = $('#textArea3');
 var textArea4 = $('#textArea4');
 var textArea5 = $('#textArea5');
 
+
+// saving the text content value to local storage, so it is accesible everytime you reload the page 
 
 $("#click9").click(function() {
     // event.preventDefault();
@@ -218,7 +220,7 @@ $("#click5").click(function() {
     localStorage.setItem('textArea5', textArea5);
 }); 
 
-
+// pulling the local stroage data and setting it to the page
    textArea9.val(localStorage.getItem('textArea9'));
    textArea10.val(localStorage.getItem('textArea10'));
    textArea11.val(localStorage.getItem('textArea11'));
