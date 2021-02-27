@@ -3,16 +3,24 @@ var currentDay = $('#currentDay');
 var currentTime = moment().startOf('hour');
 var endTime = moment().endOf('day');
 
+
+
+
+
+
 // function to activate the time clock on page start
 var timeInterval = setInterval(function() {
     var time = moment().format('MMMM Do YYYY, h:mm:ss a');
     currentDay.text(time);
     timeCompare();
+    
+    // console.log(time);
+    // console.log(endTime);
     if (time === endTime) {
         localStorage.clear();
+        
     }
 },1000);
-
 
 // timeCompare();
 // setting text content of each time row
